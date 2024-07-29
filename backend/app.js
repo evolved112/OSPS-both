@@ -3,12 +3,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const sequelize = require('./config/database');
+
 const accountRoutes = require('./routes/accountRoutes');
+const vehicleRoutes = require('./routes/vehicleRoutes');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api/accounts', accountRoutes);
+app.use('/api/vehicles', vehicleRoutes);
 
 const startServer = async () => {
   try {
